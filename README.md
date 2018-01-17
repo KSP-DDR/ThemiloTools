@@ -1,2 +1,2 @@
 # DSAE Tools
-Common resources used by DeltaDizzy's mods
+Common resources and other things used by DeltaDizzy's mods
