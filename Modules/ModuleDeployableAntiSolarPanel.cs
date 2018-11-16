@@ -9,9 +9,10 @@ namespace GeOdyssey
     {
         private void Awake()
         {
-            //find sun
+            //find stars
             List<CelestialBody> sunBodies = new List<CelestialBody>();
-            sunBodies.Add(FlightGlobals.Bodies.Find(s => s.name == Sun));
+            sunBodies.Add(FlightGlobals.Bodies.Find(s => s.name == "Sun"));
+            
         }
 
     }
