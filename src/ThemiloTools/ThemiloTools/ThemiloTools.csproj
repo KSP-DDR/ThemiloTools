@@ -36,6 +36,9 @@
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="ModularFlightIntegrator">
+      <HintPath>..\..\..\..\KSP STUFF\ModularFlightIntegrator.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,15 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\LightShifter.cs" />
+    <Compile Include="Components\ThemiloStar.cs" />
+    <Compile Include="Components\ThemiloSunFlare.cs" />
     <Compile Include="Modules\ModuleInverseDeployableSolarPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"E:\Tools\pdb2mdb\pdb2mdb.exe" "$(TargetFileName)"
-xcopy /Y "$(TargetPath)" "E:\KSP Installs\TIDev\GameData\ThemiloTools\Plugins\"
-xcopy /Y "$(TargetDir)$(TargetName).pdb" "E:\KSP Installs\TIDev\GameData\ThemiloTools\Plugins\"
-xcopy /Y "$(TargetDir)$(TargetName).dll.mdb" "E:\KSP Installs\TIDev\GameData\ThemiloTools\Plugins\"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
