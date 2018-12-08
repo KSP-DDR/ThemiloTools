@@ -1,23 +1,37 @@
 ﻿using UnityEngine;
-using Logger = Kopernicus.Logger;
 using KSP.Localization;
 using ModularFI;
 
 namespace ThemiloTools
 {
+    /// <summary>
+    /// This class queries the solar flux at the active veesel's position and prints the result using a ScreenMessage.
+    /// </summary>
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     public class SolarFluxCalc : MonoBehaviour
     {
-        public string fluxMsg = "Solar Flux for " + FlightGlobals.ActiveVessel.GetCurrentOrbit().referenceBody + "is " + ModularFlightIntegrator.ActiveVesselFI.solarFlux + " Watts/m^2";
+        /// <summary>
+        /// These are the messages to print. One prints the value, the other says to wait until daytime.
+        /// </summary>
+        public string fluxMsg1 = "Solar Flux for ";
+        public string Is = "is ";
+        public string units = " Watts/m^2";
         public string eclipseMsg = "You are not in direct Sunlight!  Plase wait until day to measure again.";
+        public string finalMsg;
 
+        /// <summary>
+        /// This prints the value
+        /// </summary>
         void Update()
         {
-            if ((Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.V)) && FlightGlobals.ActiveVessel.directSunlight)
+
+            if (Input.GetKeyDown(KeyCode.Semicolon))
             {
-                ScreenMessages.PostScreenMessage(Localizer.Format(fluxMsg));
+                finalMsg = string.Format(fluxMsg1, FlightGlobals.ActiveVessel.GetCurrentOrbit().referenceBody, Is, (ModularFlightIntegrator.ActiveVesselFI.solarFlux * ModularFlightIntegrator.ActiveVesselFI.solarFluxMultiplier), units);
+                Debug.Log("[MFICALC]: Post Message!");
+                ScreenMessages.PostScreenMessage(Localizer.Format(finalMsg));
             }
-            else
+            else if (!FlightGlobals.ActiveVessel.directSunlight)
             {
                 ScreenMessages.PostScreenMessage(Localizer.Format(eclipseMsg));
             }
