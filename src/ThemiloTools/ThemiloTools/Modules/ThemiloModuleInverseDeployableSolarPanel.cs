@@ -10,7 +10,7 @@ namespace ThemiloTools.Modules
     /// <summary>
     /// The less light there is, the more power you get! Multi-Star Support based on KopernicusSolarPanel by StollD
     /// </summary>
-    public class ModuleInverseDeployableSolarPanel : ModuleDeployableSolarPanel
+    public class ThemiloModuleInverseDeployableSolarPanel : ModuleDeployableSolarPanel
     {
         [KSPField(guiActive = true, guiActiveEditor = false, guiName = "Tracking Body", isPersistant = true)]
         public String trackingBodyName;
@@ -23,7 +23,7 @@ namespace ThemiloTools.Modules
 
         public static Double stockLuminosity;
 
-        static ModuleInverseDeployableSolarPanel()
+        static ThemiloModuleInverseDeployableSolarPanel()
         {
             String filename = (String)typeof(PhysicsGlobals).GetFields(BindingFlags.Instance | BindingFlags.NonPublic).First(f => f.FieldType == typeof(String)).GetValue(PhysicsGlobals.Instance);
             ConfigNode node = ConfigNode.Load(filename);

@@ -56,7 +56,7 @@
     <Compile Include="Components\ThemiloStar.cs" />
     <Compile Include="Components\ThemiloSunFlare.cs" />
     <Compile Include="KopWrapper.cs" />
-    <Compile Include="Modules\ModuleInverseDeployableSolarPanel.cs" />
+    <Compile Include="Modules\ThemiloModuleInverseDeployableSolarPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
