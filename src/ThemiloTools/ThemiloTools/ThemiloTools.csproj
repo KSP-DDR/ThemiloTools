@@ -29,7 +29,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\..\Distribution\ThemiloTools\Plugins\ThemiloTools.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
@@ -54,6 +55,7 @@
     <Compile Include="Components\LightShifter.cs" />
     <Compile Include="Components\ThemiloStar.cs" />
     <Compile Include="Components\ThemiloSunFlare.cs" />
+    <Compile Include="KopWrapper.cs" />
     <Compile Include="Modules\ModuleInverseDeployableSolarPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
