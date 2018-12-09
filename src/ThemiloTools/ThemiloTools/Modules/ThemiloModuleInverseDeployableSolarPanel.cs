@@ -25,7 +25,7 @@ namespace ThemiloTools.Modules
 
         static ThemiloModuleInverseDeployableSolarPanel()
         {
-            String filename = (String)typeof(PhysicsGlobals).GetFields(BindingFlags.Instance | BindingFlags.NonPublic).First(f => f.FieldType == typeof(String)).GetValue(PhysicsGlobals.Instance);
+            string filename = (string)typeof(PhysicsGlobals).GetFields(BindingFlags.Instance | BindingFlags.NonPublic).First(f => f.FieldType == typeof(String)).GetValue(PhysicsGlobals.Instance);
             ConfigNode node = ConfigNode.Load(filename);
             String value = node.GetValue("solarLuminosityAtHome");
             if (value != null)
@@ -160,7 +160,7 @@ namespace ThemiloTools.Modules
             }
 
             // Use the flow rate
-            flowRate = (Single)(resHandler.UpdateModuleResourceOutputs(_flowRate) * flowMult);
+            flowRate = (Single)(resHandler.UpdateModuleResourceOutputs(1/(1+ _flowRate)) * flowMult);
         }
 
         public override void LateUpdate()
